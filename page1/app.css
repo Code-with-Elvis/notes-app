@@ -1,0 +1,743 @@
+/*
+==============================
+Google Fonts
+==============================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,500;1,700&display=swap");
+/*
+==============================
+Project Variables
+==============================
+*/
+/*===colors===*/
+/*===others===*/
+/*
+==============================
+Universal settings
+==============================
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+html {
+  font-size: 65.2%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #D1DFEB;
+}
+
+/*
+==============================
+Mixins Settings
+==============================
+*/
+/*
+==============================
+Starting the Code
+==============================
+*/
+body {
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  position: relative;
+  width: 96%;
+  height: 98vh;
+}
+.container .left-panel {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 250px;
+  background-color: #251525;
+  height: 100%;
+}
+.container .main-part {
+  width: calc(100% - 250px);
+  background-color: #efeff7;
+  height: 100%;
+  position: relative;
+  left: 250px;
+  z-index: 1;
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1400px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 98%;
+  }
+  .container .left-panel {
+    left: -1000px;
+    transition: 0.5s ease-in-out;
+  }
+  .container .active-left-panel {
+    left: 0;
+    box-shadow: 0 0 0 400vw rgba(153, 153, 153, 0.768627451);
+  }
+  .container .main-part {
+    width: 100%;
+    left: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 250px) {
+  .container .left-panel {
+    width: max(100%, 200px);
+  }
+}
+/*
+==============================
+Coding The left Panel
+==============================
+*/
+.left-panel {
+  transition: 0.5s ease-in-out;
+}
+.left-panel .content-overflow {
+  position: relative;
+  padding-bottom: 60px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.left-panel .content-overflow::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.left-panel .content-overflow::-webkit-scrollbar-track {
+  background-color: #1b154a;
+  width: 0.4rem;
+}
+.left-panel .content-overflow::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 0.2rem;
+}
+.left-panel .content-overflow .hide-sidebar {
+  position: absolute;
+  cursor: pointer;
+  right: 1rem;
+  top: 1.5rem;
+  display: none;
+}
+.left-panel .content-overflow .hide-sidebar i {
+  color: #efeff7;
+  font-size: 2rem;
+}
+.left-panel .content-overflow .hide-sidebar i:hover {
+  color: #85CC85;
+}
+.left-panel header {
+  padding: 1.5rem 1rem 1.6rem;
+  box-shadow: 0 1px 2px #333333;
+}
+.left-panel header .logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.left-panel header .logo img {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+}
+.left-panel header .logo span {
+  color: #FF725E;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/*==========Left button ==========*/
+.left-panel .btn {
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+.left-panel .btn button {
+  background-color: #4D8DFF;
+  padding: 0.7rem 2rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.25rem;
+  box-shadow: 0 0 5px rgba(238, 238, 238, 0.4235294118);
+  transition: 0.2s ease-in-out;
+}
+.left-panel .btn button:hover {
+  background-color: #85CC85;
+}
+
+/*==========Left panel nav ==========*/
+.left-panel nav {
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+.left-panel nav h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.left-panel nav ul {
+  list-style-type: none;
+}
+.left-panel nav ul li {
+  margin-bottom: 0.5rem;
+}
+.left-panel nav ul li a {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.65rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: 0.2s ease-in-out;
+}
+.left-panel nav ul li a:hover {
+  background-color: #8B9096;
+}
+.left-panel nav ul li a img {
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+}
+.left-panel nav ul li a span {
+  font-size: 1.25rem;
+  color: #ccc;
+}
+.left-panel nav ul li .active {
+  background-color: #8B9096;
+}
+.left-panel nav ul li .active span {
+  color: #fff;
+}
+
+.left-panel .nav_2 {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 0.1px solid #fff;
+}
+
+/*==========Left user ==========*/
+.left-panel .user {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #FF725E;
+  padding: 0 1rem;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.left-panel .user:hover {
+  box-shadow: 0 -2px 3px 0 #fff;
+  background-color: #419383;
+}
+.left-panel .user .card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.left-panel .user .card .user-det {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.left-panel .user .card .user-det img {
+  width: 3.2rem;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  padding: 0.2rem;
+  border: 0.1px solid #fff;
+  border-radius: 0.3rem;
+}
+.left-panel .user .card .user-det p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000;
+}
+.left-panel .user .card i {
+  font-size: 1.6rem;
+  color: #000;
+}
+
+/*
+==============================
+Coding The Main Panel
+==============================
+*/
+.main-part {
+  position: relative;
+}
+
+.main-part header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background-color: #efeff7;
+}
+.main-part header .to-left {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+.main-part header .to-left i {
+  font-size: 1.5rem;
+  background-color: #251525;
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-content: center;
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 3px #333;
+}
+.main-part header .to-left i:hover {
+  background-color: #85CC85;
+}
+.main-part header .to-left img {
+  width: 1.8rem;
+  cursor: pointer;
+}
+.main-part header form {
+  position: relative;
+  display: flex;
+  border: 0.5px solid #8B9096;
+  align-items: center;
+  width: 400px;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  box-shadow: inset 0 0 2px #4D8DFF;
+}
+.main-part header form img {
+  width: 1.6rem;
+  aspect-ratio: 1/1;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.main-part header form input {
+  padding: 0.6rem 0.5rem 0.6rem 4rem;
+  flex: 1;
+  background-color: transparent;
+  color: #333333;
+  font-size: 1.35rem;
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+}
+.main-part header form i {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .main-part header .to-left {
+    display: flex;
+  }
+  .main-part header .to-left img {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .main-part header form {
+    width: 320px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main-part header {
+    padding: 1.5rem 2rem;
+  }
+  .main-part header .to-left img {
+    display: block;
+  }
+  .main-part header form {
+    position: absolute;
+    width: 100%;
+    height: 160%;
+    background-color: #fff;
+    left: 0;
+    top: -400px;
+    z-index: 2;
+    border-radius: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  .main-part header form input {
+    padding-right: 5rem;
+  }
+  .main-part header form i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #4D8DFF;
+    transition: 0.1s;
+    display: inline-block;
+  }
+  .main-part header form i:hover {
+    transform: rotate(180deg);
+    color: #85CC85;
+  }
+  .main-part header .form-active {
+    top: 0;
+    box-shadow: 0 0 0 600rem rgba(0, 0, 0, 0.5215686275);
+  }
+}
+.main-part header .to-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.main-part header .user {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+}
+.main-part header .user img {
+  width: 2.5rem;
+  padding: 0.2rem;
+  border: 0.1px solid #333333;
+  border-radius: 0.2rem;
+}
+.main-part header .user p {
+  font-size: 1.35rem;
+}
+.main-part header .notification {
+  position: relative;
+  cursor: pointer;
+}
+.main-part header .notification i {
+  font-size: 2.4rem;
+}
+.main-part header .notification .notification_counts {
+  position: absolute;
+  background-color: #C60B0B;
+  display: grid;
+  place-content: center;
+  height: 2rem;
+  min-width: 2rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.2rem;
+  color: #fff;
+  bottom: 70%;
+  left: 70%;
+}
+
+.main-part header .notification {
+  position: relative;
+}
+.main-part header .notification .notification-pop.active {
+  display: block;
+}
+.main-part header .notification .notification-pop {
+  display: none;
+  position: absolute;
+  background-color: #251525;
+  z-index: 2;
+  top: 150%;
+  right: 0;
+  color: #fff;
+  width: 300px;
+  min-height: 400px;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 20px #466962;
+}
+.main-part header .notification .notification-pop .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1.5rem;
+}
+.main-part header .notification .notification-pop .head h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.main-part header .notification .notification-pop .head span {
+  font-size: 1.2rem;
+}
+.main-part header .notification .notification-pop .message {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid #ccc;
+}
+.main-part header .notification .notification-pop .message .left {
+  color: #ccc;
+}
+.main-part header .notification .notification-pop .message .right {
+  padding-left: 1.5rem;
+  border-left: 1px solid #ccc;
+}
+.main-part header .notification .notification-pop .message .right h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.main-part header .notification .notification-pop .message .right p {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+.main-part header .notification .notification-pop .message .right small {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+@media screen and (max-width: 400px) {
+  .main-part header .user p {
+    display: none;
+  }
+}
+/*
+==============================
+Coding The Hero Section
+==============================
+*/
+.hero {
+  padding: 1.5rem 3rem;
+  overflow-y: scroll;
+  height: 100%;
+  padding-top: 70px;
+}
+
+.hero .banner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.hero .banner img {
+  width: 300px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.hero .banner .banner-det h1 {
+  font-size: 1.8rem;
+  color: #333333;
+  color: #000;
+  font-size: 2.2rem;
+}
+.hero .banner .banner-det p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #333;
+  font-weight: normal;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+.hero .banner .banner-det button {
+  background-color: #4D8DFF;
+  padding: 0.7rem 2rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: 0 0 4px #333333;
+}
+.hero .banner .banner-det button:hover {
+  background-color: #85CC85;
+}
+
+@media screen and (max-width: 760px) {
+  .hero .banner img {
+    display: none;
+  }
+  .hero .banner .banner-det p {
+    font-size: 1.35rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .hero .banner {
+    flex-wrap: wrap;
+  }
+  .hero .banner p span {
+    display: none;
+  }
+  .hero .banner img {
+    display: block;
+    width: 100%;
+    height: 220px;
+  }
+}
+.hero .files h3 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #FF725E;
+  font-weight: 900;
+}
+.hero .files h3 a {
+  position: relative;
+  z-index: -1;
+}
+.hero .files h3 a::before {
+  position: absolute;
+  content: "";
+  bottom: -2px;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #FF725E;
+}
+.hero .files .file-container {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  column-gap: 1rem;
+}
+.hero .files .file-container .doc {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.1rem;
+  box-shadow: 0 0 2px #555;
+}
+.hero .files .file-container .doc h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+.hero .files .file-container .doc p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1px solid #777;
+  color: #222;
+}
+.hero .files .file-container .doc a {
+  font-size: 1.2rem;
+  color: #4D8DFF;
+  text-decoration: none;
+  font-weight: 800;
+}
+.hero .files .file-container .doc a:hover {
+  color: #85CC85;
+}
+
+@media screen and (max-width: 400px) {
+  .hero .files .file-container {
+    grid-template-columns: 1fr;
+  }
+}
+/*
+==============================
+Web Preloader
+==============================
+*/
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  background-color: #F5F7F6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  padding-bottom: 2rem;
+}
+.preloader .preload {
+  width: 40rem;
+}
+.preloader .preload img {
+  width: 100%;
+}
+
+.preloader .error-box {
+  width: 40rem;
+  text-align: center;
+  background-color: #fff;
+  padding-top: 1rem;
+  box-shadow: 0 0 1px #000;
+}
+.preloader .error-box img {
+  width: 5rem;
+  margin-bottom: 1rem;
+}
+.preloader .error-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.preloader .error-box p {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.preloader .error-box small {
+  color: #4D8DFF;
+  font-size: 1.2rem;
+}
+.preloader .error-box .bottom {
+  margin-top: 1rem;
+  padding: 2rem 1rem;
+  background-color: #FF725E;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/*
+==============================
+Web Settings
+==============================
+*/
+.settings {
+  background-color: rgba(255, 255, 255, 0.8745098039);
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  display: none;
+  place-items: center;
+}
+.settings .inner-box {
+  background-color: #fff;
+  width: 400px;
+  height: 400px;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 4px #251525;
+}/*# sourceMappingURL=app.css.map */
